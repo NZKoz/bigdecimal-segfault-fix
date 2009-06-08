@@ -2,13 +2,38 @@ h1. BigDecimal Segfault Fix
 
 There is a segfault bug in ruby's big decimal library which can be triggered by users providing known-bad values.  If you wish to test whether your application is secure run +example.rb+.  This script should exit normally, not segfault.
 
-The workaround has some negative side-effects.  Specifically it prevents you from using BigDecimal to deal with large numbers (more than 255 digits) or from providing the numbers in scientific notation (e.g. "5E6" for 5000000).  If you require those features you must upgrade to a patched ruby.
+The workaround has negative side-effects.  Specifically it prevents you from using BigDecimal to deal with large numbers (more than 255 digits) or from providing the numbers in scientific notation (e.g. "5E6" for 5000000).  If you require those features you must upgrade to a patched ruby.
+
+You are strongly advised to upgrade ruby following "the instructions on the ruby site":http://www.ruby-lang.org/en/news/2009/06/09/dos-vulnerability-in-bigdecimal/.  This work around is only intended for temporary use.
 
 h2. Affected ruby versions:
 
-1.8 series
-   * 1.8.6-p368 and *all* prior versions
-   * 1.8.7-p160 and *all* prior versions
+h3. 1.8 series
 
-1.9 series
-   * All 1.9.1 versions are safe
+* 1.8.6-p368 and *all* prior versions
+* 1.8.7-p160 and *all* prior versions
+
+h3. 1.9 series
+* All 1.9.1 versions are safe
+
+h2. Installation Instructions
+
+h3. Gem installation
+
+This fix is available as a gem from github.  To install it you should run the following commands:
+
+<pre>
+  $ gem sources -a http://gems.github.com 
+  $ sudo gem install NZKoz-bigdecimal-segfault-fix
+</pre>
+
+Then in your code add:
+
+<pre>
+  gem 'NZKoz-bigdecimal-segfault-fix'
+  require 'bigdecimal-segfault-fix'
+</pre>
+
+h3. Rails Initializer Installation
+
+To apply this fix to a Rails Application you can simply copy the `bigdecimal-segfault-fix`
