@@ -36,4 +36,4 @@ Then in your code add:
 
 h3. Rails Initializer Installation
 
-To apply this fix to a Rails Application you can simply copy the `bigdecimal-segfault-fix`
+To apply this fix to a Rails Application you can simply copy the +bigdecimal-segfault-fix.rb+ file into your config/initializers directory.
