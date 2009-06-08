@@ -1,0 +1,14 @@
+h1. BigDecimal Segfault Fix
+
+There is a segfault bug in ruby's big decimal library which can be triggered by users providing known-bad values.  If you wish to test whether your application is secure run +example.rb+.  This script should exit normally, not segfault.
+
+The workaround has some negative side-effects.  Specifically it prevents you from using BigDecimal to deal with large numbers (more than 255 digits) or from providing the numbers in scientific notation (e.g. "5E6" for 5000000).  If you require those features you must upgrade to a patched ruby.
+
+h2. Affected ruby versions:
+
+1.8 series
+   * 1.8.6-p368 and *all* prior versions
+   * 1.8.7-p160 and *all* prior versions
+
+1.9 series
+   * All 1.9.1 versions are safe
