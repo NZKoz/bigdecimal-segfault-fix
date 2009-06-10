@@ -1,6 +1,6 @@
 Gem::Specification.new do |s|
   s.name     = "bigdecimal-segfault-fix"
-  s.version  = "1.0.0"
+  s.version  = "1.0.1"
   s.date     = "2009-06-03"
   s.summary  = "Prevents potentitial DoS attacks to BigDecimal"
   s.email    = "michael@koziarski.com"
@@ -10,7 +10,7 @@ Gem::Specification.new do |s|
   s.authors  = ["Michael Koziarski"]
   s.files    = ["README.textile", 
 		"LICENSE",
-		"example.xml", 
+		"example.rb", 
 		"bigdecimal-segfault-fix.gemspec", 
 		"lib/bigdecimal-segfault-fix.rb"]
 end
